@@ -1,0 +1,248 @@
+
+/*Clases (define estilos para elementos comunes)*/
+
+.formulario{
+
+    font: 90% sans-serif;
+    width: 750px;
+    background: rgb(244,250,252);
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-color: rgb(228,242,236);
+}
+.titulo{
+
+    padding-top: 3px;
+    text-align: left;
+    margin-left: 15px;
+    color: rgb(84,146,124);
+}
+.asterisco{
+
+
+    padding-top: 5px;
+    color: red;
+}
+.nota{
+
+    background-color: rgb(228,242,236);
+    border-style: dashed;
+    border-color: rgb(84,146,124);
+    border-width: thin;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.nota>label{
+
+    margin-left: 15px;
+    line-height: 30px;
+}
+
+.terms{
+
+    color: rgb(84,146,124);
+    font-size: small;
+    font-weight: bold;
+}
+
+.inputEmail{
+
+
+    width: 450px;
+    border-style: ridge;
+    border-color: azure;
+}
+
+.cellLabel{
+
+    color: rgb(84,146,124);
+    background-color: rgb(228,242,236);
+    text-align: right;
+    font-size: small;
+    height: 28px;
+    padding-right: 8px;
+    line-height: 25px;
+    width: 180px;
+}
+
+.PasswordValidator
+{
+    display: table-row-group;
+}
+
+.sinReyenoLabel{
+
+    color: rgb(84,146,124);
+    font-size: x-small;
+
+    height: 20px;
+    text-align: center;
+}
+
+/*Clases para simular el comportamiento de una tabla*/
+
+.Table
+
+{
+    margin-top: 10px;
+    margin-left: 10px;
+    display: table;
+
+}
+
+
+.Row
+
+{
+    position: relative;
+    display: table-row;
+
+}
+
+.Cell
+
+{
+    display: table-cell;
+
+    padding-left: 5px;
+
+    padding-right: 5px;
+
+}
+
+
+/*Id (estilos específicos para cada elemento)*/
+
+
+#especial{
+
+    margin-top: 10px;
+    color: rgb(84,146,124);
+    background-color: rgb(228,242,236);
+    text-align: right;
+    font-size: small;
+
+}
+
+#especial>label{
+
+    line-height: 40px;
+}
+
+#mobileCell{
+
+    color: rgb(84,146,124);
+    background-color: rgb(228,242,236);
+    text-align: right;
+    font-size: small;
+    height: 25px;
+}
+
+#contenido{
+
+
+    float:right;
+    padding-bottom:25px;
+    padding-left: 25px;
+    padding-top: 25px;
+
+}
+#padre{
+
+    margin: 0 auto;
+    margin-top: 10px;
+    position: relative;
+}
+#sidebar{
+
+    bottom:0px;
+    padding:25px;
+    position:absolute;
+    top:0px;
+}
+.nota>label{
+
+    text-align: left;
+
+}
+
+.inputName{
+
+    position: relative;
+    top: 1px;
+    width: 320px;
+    border-style: ridge;
+    border-color: azure;
+    
+}
+
+.inputAddress{
+
+    position: relative;
+    top: 1px;
+    width: 450px;
+    border-style: ridge;
+    border-color: azure;
+
+}
+
+
+.inputCity{
+    
+    width: 80px;
+    border-style: ridge;
+    border-color: azure;
+}
+
+.inputPass{
+
+    width: 200px;
+    border-style: ridge;
+    border-color: azure;
+}
+
+.inputCountry{
+    
+    width: 50px;
+    border-style: ridge;
+    border-color: azure;
+}
+
+.textArea{
+
+    border-style: ridge;
+    border-color: azure;
+    border-width: medium;
+    resize: none;
+
+}
+
+.inputPhone{
+    
+    width: 150px;
+    border-style: ridge;
+    border-color: azure;
+}
+
+.inputCorrido{
+
+    margin-left: 0.2em;
+    border-style: ridge;
+    border-color: azure;
+}
+
+p{
+
+    margin-top: -8px;
+
+}
+
+.parrafoMayor{
+
+    margin-top: 12px;
+}
+
