@@ -10,8 +10,6 @@ define(["dojo/_base/declare",
         "js/custom/CountrySelector",
         "dijit/Tooltip",
         "dojox/validate/web",
-        "dojo/on",
-        "dojo/dom",
         "dojo/text!js/custom/templates/registerFormTemplate.html",
         "dojo/i18n!js/custom/nls/content",
         "dojo/i18n!js/custom/nls/countries",
@@ -29,8 +27,6 @@ define(["dojo/_base/declare",
              CountrySelector,
              Tooltip,
              webValidator,
-             on,
-             dom,
              template,
              i18n,
              countries,
@@ -43,13 +39,13 @@ define(["dojo/_base/declare",
             postCreate : function formControllerPostCreate() {
                new Form({
                    onSubmit: function(event) {
-                       if(!check.checked) {
-                           var tt = new Tooltip({
+                       if(!checkBox.checked) {
+                           new Tooltip({
                                connectId: ["termsCheckBox"],
                                label: i18n.acceptTermsOfUse,
                                defaultPosition: "bellow"
                            });
-                           check.focus();
+                           checkBox.focus();
                            return false;
                        }
 
@@ -62,7 +58,7 @@ define(["dojo/_base/declare",
                    }
                 }, this.registerForm);
 
-                var ni = new ValidationTextBox({
+                new ValidationTextBox({
                     baseClass: "dijitTextBox dijitValidationTextBox large-input",
                     placeHolder: i18n.yourNamePlaceHolder,
                     required : true,
@@ -144,7 +140,7 @@ define(["dojo/_base/declare",
                     invalidMessage: validation.differentPasswords
                 }, this.passwordConfirmInput);
 
-                var check = new CheckBox({
+                var checkBox = new CheckBox({
                     id: "termsCheckBox"
                 }, this.termsCheckBox);
 
@@ -152,7 +148,7 @@ define(["dojo/_base/declare",
                     type: "reset"
                 }, this.resetButton);
 
-                var b = new Button({
+                new Button({
                     type: "submit"
                 }, this.continueButton);
             }
