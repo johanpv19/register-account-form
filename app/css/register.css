@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 4em;
+}
+
+label, a {
+    color: rgb(84, 146, 124);
+}
+
+input {
+    font-size: smaller;
+    padding: 0.3em;
+}
+
+textarea {
+    font-size: medium;
+    padding: 0.3em;
+    resize: none;
+}
+
+.form {
+    background: none repeat scroll 0 0 rgb(244, 250, 252);
+    border: medium solid rgb(228, 242, 236);
+    font: 90% sans-serif;
+    margin: auto;
+    width: 42em;
+}
+
+.form-header {
+    font-size: 1.4em;
+    margin: 0.7em 0 0 0.5em;
+}
+
+.form-note {
+    background-color: rgb(228, 242, 236);
+    border: thin dashed rgb(84, 146, 124);
+    margin: 1em 0.4em 0;
+    padding: 0.2em;
+}
+
+.required-mark {
+    color: red;
+}
+
+.form-content {
+    margin: 1em 0.4em 0;
+}
+
+.form-content-row {
+    margin: 0.3em 0;
+}
+
+.accept {
+    margin: 0.7em 0;
+}
+
+.row-right {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.row-left {
+    background-color: rgb(228, 242, 236);
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+    width: 12em;
+}
+
+.row-left-label {
+    font-size: 0.9em;
+    padding: 0.4em;
+}
+
+.phone-column {
+    display: inline-block;
+}
+
+.phone-column > label {
+    display: block;
+    font-size: smaller;
+    text-align: center;
+}
+
+.phone-column-country-id {
+    width: 5em;
+}
+
+.phone-column-city-id {
+    width: 7.5em;
+}
+
+.phone-column-phone-number {
+    width: 12em;
+}
+
+.pad-wide {
+    padding-bottom: 3.1em;
+    padding-top: 3.1em;
+}
+
+.pad-small {
+    padding-bottom: 1.3em;
+    padding-top: 1.3em;
+}
+
+.small-input {
+    width: 15em;
+}
+
+.medium-input {
+    width: 20em;
+}
+
+.large-input {
+    width: 22em;
+}
+
+.xlarge-input {
+    width: 28em;
+}
+
+.terms {
+    font: medium bold;
+}
+
+.validationTextAreaError, .validationTextAreaError.dijitTextBoxHover {
+    background-position: right;
+    background-image: url("../images/error.png");
+    background-size: 3% 100%;
+    background-repeat: no-repeat;
+}
+
+.localeOptions {
+    float: right;
+    margin: 5px 10px 0 0;
+    font-size: smaller;
+    color: rgb(84, 146, 124);
+}

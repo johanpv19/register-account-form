@@ -1,0 +1,106 @@
+<div class="form">
+    <div id="registerForm" data-dojo-attach-point="registerForm" encType="multipart/form-data" action="/" method="post">
+
+        <div class="localeOptions"><a href="?en">EN</a> | <a href="?es">ES</a></div>
+
+        <script type="dojo/method" event="onSubmit">
+
+        </script>
+
+        <div>
+            <div class="form-header"><label>${i18n.header}</label></div>
+
+            <div class="form-note">
+                <label>${i18n.fieldsMarkedWith}</label> <label class="required-mark">*</label> <label>${i18n.areCompulsoryFields}</label>
+            </div>
+
+            <div class="form-content">
+                <div class="form-content-row">
+                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.yourName}</label>
+                    <input class="${baseClass}NI" data-dojo-attach-point="nameInput" />
+                </div>
+
+                <div class="form-content-row">
+                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.emailId}</label>
+                    <input data-dojo-attach-point="emailIdInput"/>
+                </div>
+
+                <div class="form-content-row">
+                    <label class="row-left row-left-label">${i18n.alternateEmailId}</label>
+                    <input data-dojo-attach-point="alternateEmailIdInput"/>
+                </div>
+
+                <div class="form-content-row">
+                    <label class="row-left row-left-label pad-small">${i18n.yourPhone}</label>
+                    <div class="row-right">
+                        <div class="phone-column">
+                            <label >${i18n.countryCode}</label>
+                            <input data-dojo-attach-point="countryCodeInput"/>
+                        </div>
+                        <div class="phone-column">
+                            <label></label>
+                            <label>-</label>
+                        </div>
+                        <div class="phone-column">
+                            <label>${i18n.cityCode}</label>
+                            <input data-dojo-attach-point="cityCodeInput" />
+                        </div>
+                        <div class="phone-column">
+                            <label></label>
+                            <label>-</label>
+                        </div>
+                        <div class="phone-column">
+                            <label>${i18n.phoneNumber}</label>
+                            <input data-dojo-attach-point="phoneNumberInput"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-content-row">
+                    <label class="row-left row-left-label">${i18n.mobilePhone}</label>
+                    <input data-dojo-attach-point="mobilePhoneInput"/>
+                </div>
+
+                <div class="form-content-row">
+                    <label class="row-left row-left-label pad-wide">
+                        <label class="required-mark">*</label>${i18n.yourPostalAddress}
+                    </label>
+                    <p data-dojo-attach-point="postalAddressInput"></p>
+                </div>
+
+                <div class="form-content-row">
+                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.country}</label>
+                    <p data-dojo-attach-point="countrySelectorInput">
+                </div>
+
+                <div class="form-content-row">
+                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.password}</label>
+                    <input data-dojo-attach-point="passwordInput" />
+                </div>
+
+                <div class="form-content-row">
+                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.passwordConfirm}</label>
+                    <input data-dojo-attach-point="passwordConfirmInput" />
+                </div>
+
+                <div class="form-content-row accept">
+                    <div class="row-left"></div>
+                    <input data-dojo-attach-point="termsCheckBox"/>
+                    <label class="terms">${i18n.termsAccept} <a href="" >${i18n.termsLink}</a> </label>
+                </div>
+
+                <div class="form-content-row accept">
+                    <div class="row-left"></div>
+                    <div class="row-right">
+                        <button data-dojo-attach-point="continueButton">
+                            ${i18n.continue}
+                        </button>
+                        <button data-dojo-attach-point="resetButton" >
+                            ${i18n.reset}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
