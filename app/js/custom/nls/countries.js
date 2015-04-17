@@ -1,6 +1,6 @@
 define({
     root: {
-        selectCountry: "--------------------Select Country--------------------",
+        selectCountry: "-------------------Select Country-------------------",
 
         usCode: "US",
         usName: "UNITED STATES",

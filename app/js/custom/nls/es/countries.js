@@ -1,5 +1,5 @@
 define({
-    selectCountry: "--------------------Seleccione un país--------------------",
+    selectCountry: "-----------------Seleccione un país-----------------",
 
     usCode: "US",
     usName: "ESTADOS UNIDOS",
