@@ -2,13 +2,13 @@
 
 define({
     root: {
-        invalidNameMessage: "The 'Name' field value is invalid",
+        invalidNameMessage: "The Name field value is invalid",
 
-        missingNameMessage: "The 'Name' field is required",
+        missingNameMessage: "The Name field is required",
 
-        invalidEmailIdMessage: "The 'Email-ID' field value is invalid",
+        invalidEmailIdMessage: "The Email-ID field value is invalid",
 
-        missingEmailIdMessage: "The 'Email-ID' field is required",
+        missingEmailIdMessage: "The Email-ID field is required",
 
         invalidAlternateEmailIdMessage: "The 'Alternate Email-ID' field value is invalid",
 

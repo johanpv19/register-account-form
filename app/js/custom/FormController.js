@@ -1,6 +1,7 @@
 define(["dojo/_base/declare",
         "dijit/_WidgetBase",
         "dijit/_TemplatedMixin",
+        "dijit/_WidgetsInTemplateMixin",
         "dijit/form/ValidationTextBox",
         "dijit/form/Button",
         "dojox/form/PasswordValidator",
@@ -18,6 +19,7 @@ define(["dojo/_base/declare",
     function(declare,
              WidgetBase,
              TemplatedMixin,
+             WidgetsInTemplateMixin,
              ValidationTextBox,
              Button,
              PasswordValidator,
@@ -32,9 +34,14 @@ define(["dojo/_base/declare",
              countries,
              validation)
     {
-        return declare([WidgetBase, TemplatedMixin], {
+        return declare([WidgetBase, TemplatedMixin, WidgetsInTemplateMixin], {
             i18n: i18n,
+
+            validation: validation,
+
             templateString: template,
+
+            widgetsInTemplate: true,
 
             postCreate : function formControllerPostCreate() {
                new Form({
@@ -57,24 +64,6 @@ define(["dojo/_base/declare",
                        }
                    }
                 }, this.registerForm);
-
-                new ValidationTextBox({
-                    baseClass: "dijitTextBox dijitValidationTextBox large-input",
-                    placeHolder: i18n.yourNamePlaceHolder,
-                    required : true,
-                    regExp: "([A-Z][a-z]*( ){0,1})+",
-                    invalidMessage: validation.invalidNameMessage,
-                    missingMessage: validation.missingNameMessage
-                }, this.nameInput);
-
-;                new ValidationTextBox({
-                    baseClass: "dijitTextBox dijitValidationTextBox xlarge-input",
-                    placeHolder: i18n.emailIdPlaceHolder,
-                    required: true,
-                    validator: webValidator.isEmailAddress,
-                    invalidMessage: validation.invalidEmailIdMessage,
-                    missingMessage: validation.missingEmailIdMessage
-                }, this.emailIdInput);
 
                 new ValidationTextBox({
                     baseClass: "dijitTextBox dijitValidationTextBox xlarge-input",

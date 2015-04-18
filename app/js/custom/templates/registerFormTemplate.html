@@ -17,12 +17,24 @@
             <div class="form-content">
                 <div class="form-content-row">
                     <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.yourName}</label>
-                    <input data-dojo-attach-point="nameInput" />
+                    <input class="large-input"
+                           data-dojo-type="dijit/form/ValidationTextBox"
+                           data-dojo-props="required: true,
+                                placeHolder: '${i18n.yourNamePlaceHolder}',
+                                invalidMessage: '${validation.invalidNameMessage}',
+                                missingMessage: '${validation.missingNameMessage}',
+                                regExp: '([A-Z][a-z]*( ){0,1})+'" />
                 </div>
 
                 <div class="form-content-row">
                     <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.emailId}</label>
-                    <input data-dojo-attach-point="emailIdInput"/>
+                    <input class="xlarge-input"
+                           data-dojo-type="dijit/form/ValidationTextBox"
+                           data-dojo-props="required: true,
+                                placeHolder: '${i18n.emailIdPlaceHolder}',
+                                validator: dojox.validate.isEmailAddress,
+                                invalidMessage: '${validation.invalidEmailIdMessage}',
+                                missingMessage: '${validation.missingEmailIdMessage}'">
                 </div>
 
                 <div class="form-content-row">
