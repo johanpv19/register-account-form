@@ -11,6 +11,7 @@ define(["dojo/_base/declare",
         "js/custom/CountrySelector",
         "dijit/Tooltip",
         "dojox/validate/web",
+        "dojo/_base/lang",
         "dojo/text!js/custom/templates/registerFormTemplate.html",
         "dojo/i18n!js/custom/nls/content",
         "dojo/i18n!js/custom/nls/countries",
@@ -29,117 +30,50 @@ define(["dojo/_base/declare",
              CountrySelector,
              Tooltip,
              webValidator,
+             lang,
              template,
-             i18n,
+             content,
              countries,
              validation)
     {
         return declare([WidgetBase, TemplatedMixin, WidgetsInTemplateMixin], {
-            i18n: i18n,
-
-            validation: validation,
-
+            i18n: {
+                content: content,
+                validation: validation,
+                countries: countries
+            },
             templateString: template,
-
             widgetsInTemplate: true,
 
-            postCreate : function formControllerPostCreate() {
-               new Form({
-                   onSubmit: function(event) {
-                       if(!checkBox.checked) {
-                           new Tooltip({
-                               connectId: ["termsCheckBox"],
-                               label: i18n.acceptTermsOfUse,
-                               defaultPosition: "bellow"
-                           });
-                           checkBox.focus();
-                           return false;
-                       }
+            postCreate: function formControllerPostCreate() {
+                this.registerForm.onSubmit = lang.hitch(this, onSubmit);
 
-                       if (this.validate()) {
-                           return confirm(i18n.formIsValid);
-                       } else {
-                           alert(i18n.formContainsInvalidData);
-                           return false;
-                       }
-                   }
-                }, this.registerForm);
+                function onSubmit(event) {
+                    if (!this.termsCheckBox.checked) {
+                        new Tooltip({
+                            connectId: ["termsCheckBox"],
+                            label: content.acceptTermsOfUse,
+                            defaultPosition: "bellow"
+                        });
+                        this.termsCheckBox.focus();
+                        return false;
+                    }
 
-                new ValidationTextBox({
-                    baseClass: "dijitTextBox dijitValidationTextBox xlarge-input",
-                    placeHolder: i18n.alternateEmailIdPlaceHolder,
-                    validator: function(email) {
-                        return email == '' || webValidator.isEmailAddress(email);
-                    },
-                    invalidMessage: validation.invalidAlternateEmailIdMessage
-                }, this.alternateEmailIdInput);
+                    if (this.registerForm.validate()) {
+                        return confirm(content.formIsValid);
+                    } else {
+                        alert(content.formContainsInvalidData);
+                        return false;
+                    }
+                };
 
-                new ValidationTextBox ({
-                    baseClass: "dijitTextBox dijitValidationTextBox phone-column-country-id",
-                    regExp: "\\+{0,1}\\d{1,2}",
-                    invalidMessage: validation.invalidCountryCodeMessage
-                }, this.countryCodeInput);
+                this.alternateEmailIdInput.validator = function(email) {
+                    return email === '' || webValidator.isEmailAddress(email);
+                };
 
-                new ValidationTextBox ({
-                    baseClass: "dijitTextBox dijitValidationTextBox phone-column-city-id",
-                    regExp: "\\d{3}",
-                    invalidMessage: validation.invalidCityCodeMessage
-                }, this.cityCodeInput);
-
-                new ValidationTextBox ({
-                    baseClass: "dijitTextBox dijitValidationTextBox phone-column-phone-number",
-                    regExp: "\\d{8,10}",
-                    invalidMessage: validation.invalidPhoneNumberMessage
-                }, this.phoneNumberInput);
-
-                new ValidationTextBox ({
-                    baseClass: "dijitTextBox dijitValidationTextBox medium-input",
-                    regExp: "\\+{0,1}\\d{8,10}",
-                    invalidMessage: validation.invalidMobilePhoneMessage
-                }, this.mobilePhoneInput);
-
-                new ValidationTextArea({
-                    required: "true",
-                    missingMessage: validation.missingPostalAddressMessage,
-                    rows: "5",
-                    cols: "40"
-                }, this.postalAddressInput);
-
-                new CountrySelector({
-                    required: true,
-                    placeHolder: countries.selectCountry,
-                    missingMessage: validation.countryMissing,
-                    invalidMessage: validation.countryInvalid,
-                    searchAttr: "name"
-                }, this.countrySelectorInput);
-
-                var pi = new ValidationTextBox({
-                    baseClass: "dijitTextBox dijitValidationTextBox small-input",
-                    type: "password",
-                    required: true,
-                    missingMessage: validation.missingPassword
-                }, this.passwordInput);
-
-                new ValidationTextBox({
-                    baseClass: "dijitTextBox dijitValidationTextBox small-input",
-                    type: "password",
-                    validator: function () {
-                        return pi.value === this.value;
-                    },
-                    invalidMessage: validation.differentPasswords
-                }, this.passwordConfirmInput);
-
-                var checkBox = new CheckBox({
-                    id: "termsCheckBox"
-                }, this.termsCheckBox);
-
-                new Button({
-                    type: "reset"
-                }, this.resetButton);
-
-                new Button({
-                    type: "submit"
-                }, this.continueButton);
+                this.passwordConfirmInput.validator = lang.hitch(this, function() {
+                    return this.passwordInput.value === this.passwordConfirmInput.value;
+                });
             }
         });
     }

@@ -1,5 +1,5 @@
 <div class="form">
-    <div id="registerForm" data-dojo-attach-point="registerForm" encType="multipart/form-data" action="/" method="post">
+    <div id="registerForm" data-dojo-type="dijit/form/Form" data-dojo-attach-point="registerForm" encType="multipart/form-data" action="/" method="post">
 
         <div class="localeOptions"><a href="?en">EN</a> | <a href="?es">ES</a></div>
 
@@ -8,107 +8,140 @@
         </script>
 
         <div>
-            <div class="form-header"><label>${i18n.header}</label></div>
+            <div class="form-header"><label>${i18n.content.header}</label></div>
 
             <div class="form-note">
-                <label>${i18n.fieldsMarkedWith}</label> <label class="required-mark">*</label> <label>${i18n.areCompulsoryFields}</label>
+                <label>${i18n.content.fieldsMarkedWith}</label> <label class="required-mark">*</label> <label>${i18n.content.areCompulsoryFields}</label>
             </div>
 
             <div class="form-content">
                 <div class="form-content-row">
-                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.yourName}</label>
+                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.content.yourName}</label>
                     <input class="large-input"
                            data-dojo-type="dijit/form/ValidationTextBox"
                            data-dojo-props="required: true,
-                                placeHolder: '${i18n.yourNamePlaceHolder}',
-                                invalidMessage: '${validation.invalidNameMessage}',
-                                missingMessage: '${validation.missingNameMessage}',
+                                placeHolder: '${i18n.content.yourNamePlaceHolder}',
+                                invalidMessage: '${i18n.validation.invalidNameMessage}',
+                                missingMessage: '${i18n.validation.missingNameMessage}',
                                 regExp: '([A-Z][a-z]*( ){0,1})+'" />
                 </div>
 
                 <div class="form-content-row">
-                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.emailId}</label>
+                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.content.emailId}</label>
                     <input class="xlarge-input"
                            data-dojo-type="dijit/form/ValidationTextBox"
                            data-dojo-props="required: true,
-                                placeHolder: '${i18n.emailIdPlaceHolder}',
+                                placeHolder: '${i18n.content.emailIdPlaceHolder}',
                                 validator: dojox.validate.isEmailAddress,
-                                invalidMessage: '${validation.invalidEmailIdMessage}',
-                                missingMessage: '${validation.missingEmailIdMessage}'">
+                                invalidMessage: '${i18n.validation.invalidEmailIdMessage}',
+                                missingMessage: '${i18n.validation.missingEmailIdMessage}'">
                 </div>
 
                 <div class="form-content-row">
-                    <label class="row-left row-left-label">${i18n.alternateEmailId}</label>
-                    <input data-dojo-attach-point="alternateEmailIdInput"/>
+                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.content.alternateEmailId}</label>
+                    <input class="xlarge-input"
+                           data-dojo-type="dijit/form/ValidationTextBox"
+                           data-dojo-attach-point="alternateEmailIdInput"
+                           data-dojo-props="placeHolder: '${i18n.content.alternateEmailIdPlaceHolder}',
+                                invalidMessage: '${i18n.validation.invalidAlternateEmailIdMessage}'">
                 </div>
 
                 <div class="form-content-row">
-                    <label class="row-left row-left-label pad-small">${i18n.yourPhone}</label>
+                    <label class="row-left row-left-label pad-small">${i18n.content.yourPhone}</label>
                     <div class="row-right">
                         <div class="phone-column">
-                            <label >${i18n.countryCode}</label>
-                            <input data-dojo-attach-point="countryCodeInput"/>
+                            <label >${i18n.content.countryCode}</label>
+                            <input class="phone-column-country-id"
+                                   data-dojo-type="dijit/form/ValidationTextBox"
+                                   data-dojo-props="regExp: '\\+{0,1}\\d{1,2}',
+                                        invalidMessage: '${i18n.validation.invalidCountryCodeMessage}'"/>
                         </div>
                         <div class="phone-column">
                             <label></label>
                             <label>-</label>
                         </div>
                         <div class="phone-column">
-                            <label>${i18n.cityCode}</label>
-                            <input data-dojo-attach-point="cityCodeInput" />
+                            <label>${i18n.content.cityCode}</label>
+                            <input class="phone-column-city-id"
+                                   data-dojo-type="dijit/form/ValidationTextBox"
+                                   data-dojo-props="regExp: '\\d{3}',
+                                        invalidMessage: '${i18n.validation.invalidCityCodeMessage}'"/>
                         </div>
                         <div class="phone-column">
                             <label></label>
                             <label>-</label>
                         </div>
                         <div class="phone-column">
-                            <label>${i18n.phoneNumber}</label>
-                            <input data-dojo-attach-point="phoneNumberInput"/>
+                            <label>${i18n.content.phoneNumber}</label>
+                            <input class="phone-column-phone-number"
+                                   data-dojo-type="dijit/form/ValidationTextBox"
+                                   data-dojo-props="regExp: '\\d{8,10}',
+                                        invalidMessage: '${i18n.validation.invalidPhoneNumberMessage}'"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-content-row">
-                    <label class="row-left row-left-label">${i18n.mobilePhone}</label>
-                    <input data-dojo-attach-point="mobilePhoneInput"/>
+                    <label class="row-left row-left-label">${i18n.content.mobilePhone}</label>
+                    <input class="medium-input"
+                           data-dojo-type="dijit/form/ValidationTextBox"
+                           data-dojo-props="regExp: '\\+{0,1}\\d{8,10}',
+                                invalidMessage: '${i18n.validation.invalidMobilePhoneMessage}'"/>
                 </div>
 
                 <div class="form-content-row">
                     <label class="row-left row-left-label pad-wide">
-                        <label class="required-mark">*</label>${i18n.yourPostalAddress}
+                        <label class="required-mark">*</label>${i18n.content.yourPostalAddress}
                     </label>
-                    <p data-dojo-attach-point="postalAddressInput"></p>
+                    <input class="${baseClass}"
+                           data-dojo-type="js/custom/ValidationTextArea"
+                           data-dojo-props="required: true, rows: 5, cols: 40,
+                                missingMessage: '${i18n.validation.missingPostalAddressMessage}'" />
                 </div>
 
                 <div class="form-content-row">
-                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.country}</label>
-                    <p data-dojo-attach-point="countrySelectorInput">
+                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.content.country}</label>
+                    <input class="${baseClass}"
+                           data-dojo-type="js/custom/CountrySelector"
+                           data-dojo-props="required: true,
+                                placeHolder: '${i18n.countries.selectCountry}',
+                                missingMessage: '${i18n.validation.countryMissing}',
+                                invalidMessage: '${i18n.validation.countryInvalid}',
+                                searchAttr: 'name'"/>
                 </div>
 
                 <div class="form-content-row">
-                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.password}</label>
-                    <input data-dojo-attach-point="passwordInput" />
+                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.content.password}</label>
+                    <input class="small-input" type="password"
+                           data-dojo-attach-point="passwordInput",
+                           data-dojo-type="dijit/form/ValidationTextBox"
+                           data-dojo-props="required: true, missingMessage: '${i18n.validation.missingPassword}'"/>
                 </div>
 
                 <div class="form-content-row">
-                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.passwordConfirm}</label>
-                    <input data-dojo-attach-point="passwordConfirmInput" />
+                    <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.content.passwordConfirm}</label>
+                    <input class="small-input" type="password"
+                           data-dojo-attach-point="passwordConfirmInput",
+                           data-dojo-type="dijit/form/ValidationTextBox"
+                           data-dojo-props="invalidMessage: '${i18n.validation.differentPasswords}'"/>
                 </div>
 
                 <div class="form-content-row accept">
                     <div class="row-left"></div>
-                    <input data-dojo-attach-point="termsCheckBox"/>
-                    <label class="terms">${i18n.termsAccept} <a href="" >${i18n.termsLink}</a> </label>
+                    <input id="termsCheckBox"
+                           data-dojo-attach-point="termsCheckBox"
+                           data-dojo-type="dijit/form/CheckBox"/>
+                    <label class="terms">${i18n.content.termsAccept} <a href="" >${i18n.content.termsLink}</a> </label>
                 </div>
 
                 <div class="form-content-row accept">
                     <div class="row-left"></div>
                     <div class="row-right">
-                        <button data-dojo-attach-point="continueButton">
-                            ${i18n.continue}
+                        <button data-dojo-type="dijit/form/Button" type="submit">
+                            ${i18n.content.continue}
                         </button>
-                        <button data-dojo-attach-point="resetButton" >
-                            ${i18n.reset}
+                        <button data-dojo-type="dijit/form/Button" type="reset">
+                            ${i18n.content.reset}
                         </button>
                     </div>
                 </div>
