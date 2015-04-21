@@ -5,36 +5,37 @@
         <title id="formTitle"></title>
 
         <style type="text/css">
-            @import "//ajax.googleapis.com/ajax/libs/dojo/1.8.10/dijit/themes/claro/claro.css";
-            /*@import "js/dijit/themes/claro/claro.css";*/
+            /*@import "//ajax.googleapis.com/ajax/libs/dojo/1.8.10/dijit/themes/claro/claro.css";*/
+            @import "js/dijit/themes/claro/claro.css";
             @import "css/register.css";
         </style>
     </head>
 
     <body class="claro">
-        <div id="register" />
+        <div id="register"></div>
     </body>
 
     <script>
         var dojoConfig = {
             async : true,
-            parseOnLoad: true,
+            //parseOnLoad: true,
             packages: [ { name: 'js', location: location.pathname.replace(/\/[^/]+$/, '') + '/js' } ],
-            // look for a locale=xx query string param, else default to 'en-us' //remove this after writing it in article
             locale: location.search.substring(1)===""?"en-us":location.search.substring(1)
         };
     </script>
-    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.10/dojo/dojo.js"></script>
-    <!--<script data-dojo-config="async: true, parseOnLoad: true" src="js/dojo/dojo.js"></script>-->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.10/dojo/dojo.js"></script>-->
+    <script src="js/dojo/dojo.js"></script>
 
     <script>
-        require(["js/custom/FormController.js", "dojo/i18n!js/custom/nls/content", "dojo/dom", "dojo/domReady!"],
-            function(FormController, i18n, dom) {
+        require(["js/custom/FormController.js", "dojo/parser", "dojo/i18n!js/custom/nls/content", "dojo/dom", "dojo/domReady!"],
+            function(FormController, parser, content, dom) {
                 var fc = FormController();
                 fc.placeAt("register", "last");
 
                 // Internationalize form title.
-                dom.byId("formTitle").innerHTML = i18n.title;
+                dom.byId("formTitle").innerHTML = content.title;
+
+                parser.parse();
             }
         );
     </script>

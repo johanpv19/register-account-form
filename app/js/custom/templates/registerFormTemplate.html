@@ -1,5 +1,5 @@
 <div class="form">
-    <div id="registerForm" data-dojo-type="dijit/form/Form" data-dojo-attach-point="registerForm" encType="multipart/form-data" action="/" method="post">
+    <form id="registerForm" data-dojo-type="dijit/form/Form" data-dojo-attach-point="registerForm" encType="multipart/form-data" action="/" method="post">
 
         <div class="localeOptions"><a href="?en">EN</a> | <a href="?es">ES</a></div>
 
@@ -19,7 +19,7 @@
                                 placeHolder: '${i18n.content.yourNamePlaceHolder}',
                                 invalidMessage: '${i18n.validation.invalidNameMessage}',
                                 missingMessage: '${i18n.validation.missingNameMessage}',
-                                regExp: '([A-Z][a-z]*( ){0,1})+'" />
+                                regExp: '([A-Za-z]*( ){0,1})+'"/>
                 </div>
 
                 <div class="form-content-row">
@@ -30,7 +30,7 @@
                                 placeHolder: '${i18n.content.emailIdPlaceHolder}',
                                 validator: dojox.validate.isEmailAddress,
                                 invalidMessage: '${i18n.validation.invalidEmailIdMessage}',
-                                missingMessage: '${i18n.validation.missingEmailIdMessage}'">
+                                missingMessage: '${i18n.validation.missingEmailIdMessage}'"/>
                 </div>
 
                 <div class="form-content-row">
@@ -92,18 +92,19 @@
                     <input class="${baseClass}"
                            data-dojo-type="js/custom/ValidationTextArea"
                            data-dojo-props="required: true, rows: 5, cols: 40,
-                                missingMessage: '${i18n.validation.missingPostalAddressMessage}'" />
+                                missingMessage: '${i18n.validation.missingPostalAddressMessage}'"/>
                 </div>
 
                 <div class="form-content-row">
                     <label class="row-left row-left-label"><label class="required-mark">*</label>${i18n.content.country}</label>
-                    <input class="${baseClass}"
+                    <select class="${baseClass}"
                            data-dojo-type="js/custom/CountrySelector"
                            data-dojo-props="required: true,
                                 placeHolder: '${i18n.countries.selectCountry}',
                                 missingMessage: '${i18n.validation.countryMissing}',
                                 invalidMessage: '${i18n.validation.countryInvalid}',
-                                searchAttr: 'name'"/>
+                                searchAttr: 'name'">
+                    </select>
                 </div>
 
                 <div class="form-content-row">
@@ -111,7 +112,7 @@
                     <input class="small-input" type="password"
                            data-dojo-attach-point="passwordInput"
                            data-dojo-type="dijit/form/ValidationTextBox"
-                           data-dojo-props="required: true, missingMessage: '${i18n.validation.missingPassword}'"/>
+                           data-dojo-props="required: true, missingMessage: '${i18n.validation.missingPassword}'" />
                 </div>
 
                 <div class="form-content-row">
@@ -134,14 +135,14 @@
                     <div class="row-left"></div>
                     <div class="row-right">
                         <button data-dojo-type="dijit/form/Button" type="submit">
-                            ${i18n.content.continue}
+                            <span>${i18n.content.continue}</span>
                         </button>
                         <button data-dojo-type="dijit/form/Button" type="reset">
-                            ${i18n.content.reset}
+                            <span>${i18n.content.reset}</span>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
