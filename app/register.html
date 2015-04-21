@@ -5,8 +5,10 @@
         <title id="formTitle"></title>
 
         <style type="text/css">
+            /* Referencing CDN scripts specifying the protocol makes it possible to load the form from the file system */
+            @import "https://ajax.googleapis.com/ajax/libs/dojo/1.8.10/dijit/themes/claro/claro.css";
             /*@import "//ajax.googleapis.com/ajax/libs/dojo/1.8.10/dijit/themes/claro/claro.css";*/
-            @import "js/dijit/themes/claro/claro.css";
+            /*@import "js/dijit/themes/claro/claro.css";*/
             @import "css/register.css";
         </style>
     </head>
@@ -23,8 +25,11 @@
             locale: location.search.substring(1)===""?"en-us":location.search.substring(1)
         };
     </script>
+
+    <!--Referencing CDN scripts specifying the protocol makes it possible to load the form from the file system-->
+    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.8.10/dojo/dojo.js"></script>
     <!--<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.10/dojo/dojo.js"></script>-->
-    <script src="js/dojo/dojo.js"></script>
+    <!--<script src="js/dojo/dojo.js"></script>-->
 
     <script>
         require(["js/custom/FormController.js", "dojo/parser", "dojo/i18n!js/custom/nls/content", "dojo/dom", "dojo/domReady!"],
